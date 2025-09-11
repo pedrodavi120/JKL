@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JKL Veículos 🚗</title>
+  <link rel="shortcut icon" href="logo.png">
+  <meta name="description" content="JKL Veículos – Compre, venda e financie seu próximo carro com confiança." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="Página inicial JKL Veículos">
+        <img src="logo.png" alt="logo-pg-brand" style="width: 70px;">
+      </a>
+      <nav class="menu" aria-label="principal">
+        <a href="#estoque">Estoque</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div class="header-right">
+        <a class="btn brand cta-header" href="#contato">Quero negociar</a>
+        <button id="loginBtn" class="btn ghost">Admin</button>
+        <button id="adminBtn" class="btn brand" style="display: none;">Painel</button>
+        <button id="theme-toggle" class="btn ghost" aria-label="Alterar tema">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sun" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="mobile-toggle btn ghost" aria-label="Abrir menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" id="inicio">
+      <div>
+        <span class="badge">🚗 Desde 2023 | Garantia e Procedência</span>
+        <h1 class="headline">Seu próximo carro está na <span class="gradient-text">JKL Veículos</span>.</h1>
+        <p class="sub">Compramos, vendemos e financiamos veículos com transparência. Avaliação justa na troca e laudo cautelar em todos os carros.</p>
+        <div class="cta">
+          <a class="btn brand" href="#estoque">Ver estoque</a>
+          <a class="btn ghost" href="#contato">Agendar visita</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-grid">
+          <div class="mini">
+            <strong>💳 Financiamento fácil</strong>
+            <p class="sub" style="margin:6px 0 0">Simulação em minutos, com as melhores taxas do mercado.</p>
+          </div>
+          <div class="mini">
+            <strong>🧾 Laudo aprovado</strong>
+            <p class="sub" style="margin:6px 0 0">Procedência verificada e garantia na transferência.</p>
+          </div>
+          <div class="mini">
+            <strong>🔁 Troca com troco</strong>
+            <p class="sub" style="margin:6px 0 0">Usamos seu usado como parte do pagamento.</p>
+          </div>
+          <div class="mini">
+            <strong>🛠 Revisados</strong>
+            <p class="sub" style="margin:6px 0 0">Veículos revisados e prontos para rodar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="estoque">
+      <h2>Estoque</h2>
+      <div class="filters" role="search">
+        <input id="q" type="search" placeholder="Buscar (modelo, versão, cor)..." aria-label="Buscar no estoque" />
+        <select id="make" aria-label="Marca">
+          <option value="">Todas as marcas</option>
+        </select>
+        <select id="sort" aria-label="Ordenar por">
+          <option value="relevance">Ordenar: Relevância</option>
+          <option value="priceAsc">Menor preço</option>
+          <option value="priceDesc">Maior preço</option>
+          <option value="yearDesc">Mais novo</option>
+          <option value="kmAsc">Menor km</option>
+        </select>
+        <input id="minPrice" type="number" inputmode="numeric" placeholder="Preço mín. (R$)" aria-label="Preço mínimo" />
+        <input id="maxPrice" type="number" inputmode="numeric" placeholder="Preço máx. (R$)" aria-label="Preço máximo" />
+        <button class="btn ghost" id="clearFilters">Limpar filtros</button>
+      </div>
+
+      <div id="grid" class="grid" aria-live="polite" aria-busy="false"></div>
+      <div id="empty" class="empty" hidden>Nenhum veículo encontrado para os filtros aplicados.</div>
+    </section>
+
+    <section class="container section" id="servicos">
+      <h2>Serviços</h2>
+      <div class="panel">
+        <div class="contact">
+          <h3>Simulação de financiamento</h3>
+          <p class="sub">Informe seus dados e retornamos com as melhores condições.</p>
+          <form id="financeForm" novalidate>
+            <input name="name" placeholder="Seu nome" aria-label="Seu nome" required />
+            <input name="phone" placeholder="Telefone/WhatsApp" aria-label="Telefone/WhatsApp" required />
+            <input name="income" placeholder="Renda mensal (R$)" aria-label="Renda mensal" />
+            <input name="down" placeholder="Entrada (R$)" aria-label="Entrada" />
+            <textarea name="message" placeholder="Modelo de interesse, prazos, observações..." aria-label="Mensagem"></textarea>
+            <button class="btn brand" type="submit">Solicitar simulação</button>
+          </form>
+          <p id="financeMsg" class="sub" role="status" style="margin-top:8px"></p>
+        </div>
+        <div class="contact">
+          <h3>Avaliação do seu usado</h3>
+          <p class="sub">Descreva seu veículo e receba uma estimativa sem compromisso.</p>
+          <form id="tradeForm" novalidate>
+            <input name="name" placeholder="Seu nome" aria-label="Seu nome" required />
+            <input name="phone" placeholder="Telefone/WhatsApp" aria-label="Telefone/WhatsApp" required />
+            <input name="car" placeholder="Seu carro (marca, modelo, ano)" aria-label="Seu carro" />
+            <input name="km" placeholder="Quilometragem" aria-label="Quilometragem" />
+            <textarea name="message" placeholder="Conservação, opcionais, pendências..." aria-label="Mensagem"></textarea>
+            <button class="btn brand" type="submit">Pedir avaliação</button>
+          </form>
+          <p id="tradeMsg" class="sub" role="status" style="margin-top:8px"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="contato">
+      <h2>Contato</h2>
+      <div class="panel">
+        <div class="contact">
+          <h3>Fale com a JKL Veículos</h3>
+          <p class="sub">Atendemos de segunda a sábado. Resposta rápida 👋</p>
+          <p style="margin:10px 0 0"><strong>Telefone:</strong> <a href="tel:+5584997086138">(84) 99451-0452</a></p>
+          <p style="margin:6px 0 0"><strong>E-mail:</strong> <a href="mailto:contato@jklveiculos.com.br">contato@jklveiculos.com.br</a></p>
+          <p style="margin:6px 0 0"><strong>Endereço:</strong> RN-160, 3745, São Gonçalo do Amarante - RN, 59290-000</p>
+          <div class="cta" style="margin-top:10px">
+            <a class="btn brand" href="https://wa.me/5584994510452" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.1-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+              <span>Chamar no WhatsApp</span>
+            </a>
+            <a class="btn ghost" href="#estoque">Ver ofertas</a>
+          </div>
+        </div>
+        <div class="contact">
+          <h3>Sobre nós</h3>
+          <p class="sub">Somos apaixonados por carros e por atendimento de qualidade. Centenas de clientes atendidos e uma única missão: colocar você no volante do carro certo.</p>
+          <ul>
+            <li>✔️ Transparência total na negociação</li>
+            <li>✔️ Veículos periciados e revisados</li>
+            <li>✔️ Troca com troco e consignação</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div class="brand" aria-hidden="true">
+        <img src="logo.png" alt="logo-pg-brand" style="width: 70px;">
+      </div>
+      <div class="socials">
+        <a href="https://www.instagram.com/jkl_veiculos" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        </a>
+        <a href="https://wa.me/5584994510452" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        </a>
+      </div>
+      <small>© <span id="year"></span> JKL Veículos. Todos os direitos reservados.</small>
+    </div>
+  </footer>
+
+  <!-- Modal Detalhes -->
+  <dialog id="carModal" aria-labelledby="carTitle">
+    <div class="modal-head">
+      <strong id="carTitle">Detalhes do veículo</strong>
+      <button class="btn ghost" onclick="closeModal('carModal')">Fechar</button>
+    </div>
+    <div class="modal-body">
+      <div class="slider-container">
+        <div class="slider-main-image">
+            <img id="carImg" alt="Imagem principal do veículo"/>
+            <button class="slider-nav prev" id="sliderPrev" aria-label="Imagem anterior">&#10094;</button>
+            <button class="slider-nav next" id="sliderNext" aria-label="Próxima imagem">&#10095;</button>
+        </div>
+        <div class="slider-thumbnails" id="sliderThumbnails">
+            <!-- Thumbnails geradas via JS -->
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <h3 id="carName" style="margin:0"></h3>
+          <div class="price" id="carPrice"></div>
+        </div>
+        <div class="tags" id="carTags" style="margin:10px 0 6px"></div>
+        <div class="modal-specs" id="carSpecs"></div>
+        <div class="cta" style="margin-top:12px">
+          <a id="ctaWhatsapp" class="btn brand" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.1-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+            <span>Chamar no WhatsApp</span>
+          </a>
+          <a href="#contato" class="btn ghost" onclick="closeModal('carModal')">Tenho interesse</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Modal Login -->
+  <dialog id="loginModal" aria-labelledby="loginTitle">
+      <div class="modal-head">
+          <strong id="loginTitle">Acesso Restrito</strong>
+          <button class="btn ghost" onclick="closeModal('loginModal')">Fechar</button>
+      </div>
+      <div class="modal-body-single">
+          <form id="loginForm">
+              <input type="text" id="username" placeholder="Usuário" required>
+              <input type="password" id="password" placeholder="Senha" required>
+              <button type="submit" class="btn brand">Entrar</button>
+              <p id="loginError" class="error-msg" role="alert"></p>
+          </form>
+      </div>
+  </dialog>
+
+  <!-- Modal Adicionar Veículo -->
+  <dialog id="addVehicleModal" aria-labelledby="addVehicleTitle">
+    <div class="modal-head">
+      <strong id="addVehicleTitle">Adicionar Novo Veículo</strong>
+      <button class="btn ghost" onclick="closeModal('addVehicleModal')">Fechar</button>
+    </div>
+    <div class="modal-body-single">
+      <form id="addVehicleForm">
+        <input name="make" placeholder="Marca" required>
+        <input name="model" placeholder="Modelo" required>
+        <input name="year" type="number" placeholder="Ano" required>
+        <input name="km" type="number" placeholder="KM" required>
+        <input name="price" type="number" placeholder="Preço" required>
+        <input name="color" placeholder="Cor" required>
+        <select name="fuel" required>
+            <option value="Flex">Flex</option>
+            <option value="Gasolina">Gasolina</option>
+            <option value="Etanol">Etanol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Híbrido">Híbrido</option>
+            <option value="Elétrico">Elétrico</option>
+        </select>
+        <select name="transmission" required>
+            <option value="Manual">Manual</option>
+            <option value="Automático">Automático</option>
+        </select>
+        <label for="imageUpload" style="grid-column: span 2; margin-top: 5px; margin-bottom: -5px;">Imagens do Veículo:</label>
+        <input type="file" id="imageUpload" name="imageFiles" multiple accept="image/*" style="grid-column: span 2;">
+        <div id="imagePreviewContainer" class="image-previews" style="grid-column: span 2;"></div>
+        <button type="submit" class="btn brand" style="grid-column: span 2;">Adicionar ao Estoque</button>
+      </form>
+    </div>
+  </dialog>
+
+
+  <script src="script.js" defer></script>
+</body>
+</html>
+
