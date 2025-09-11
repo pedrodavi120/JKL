@@ -31,7 +31,7 @@ let cars = [
 ];
 
 // ====== AUTH & STATE ======
-const adminCredentials = { user: 'admin', pass: 'jkl123' };
+const adminCredentials = { user: 'BLABLA', pass: 'BLABLABLA' };
 let state = { q:'', make:'', sort:'relevance', minPrice:'', maxPrice:'', isLoggedIn: false, currentSliderIndex: 0 };
 let uploadedImageFiles = [];
 
@@ -450,4 +450,5 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 });
+
 
