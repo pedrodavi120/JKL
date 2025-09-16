@@ -1,2 +1,2 @@
 # JKL
-Site de veículos (teste de back-end)
+Site de veículos (versão sem back-end)
